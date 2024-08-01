@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ADLEO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .welcome {
+            margin-bottom: 20px;
+        }
+
+        .welcome h1 {
+            color: #42a5f5;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .welcome p {
+            font-size: 1.2rem;
+            margin: 10px 0 30px;
+            color: #555;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .description h2 {
+            color: #42a5f5;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .description p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #42a5f5;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #1e88e5;
+        }
+
+        .falling-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .falling-icons i {
+            position: absolute;
+            font-size: 24px;
+            color: #42a5f5;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .highlight-sections {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            flex: 1;
+            margin: 0 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .highlight.red {
+            background-color: #f44336;
+        }
+
+        .highlight.orange {
+            background-color: #ff9800;
+        }
+
+        .highlight h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .highlight .icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .highlight .icon i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="falling-icons">
+        <i class="fas fa-school" style="left: 10%; animation-duration: 10s; animation-delay: 0s;"></i>
+        <i class="fas fa-graduation-cap" style="left: 30%; animation-duration: 12s; animation-delay: 2s;"></i>
+        <i class="fas fa-book" style="left: 50%; animation-duration: 8s; animation-delay: 4s;"></i>
+        <i class="fas fa-chalkboard-teacher" style="left: 70%; animation-duration: 15s; animation-delay: 6s;"></i>
+    </div>
+
+    <div class="container">
+        <div class="welcome">
+            <h1>Bienvenido a ADLEO</h1>
+            <p>¡Explora, aprende y crece con nosotros!</p>
+        </div>
+
+        <div class="image-container">
+            <img src="ADLEOlogo.png" alt="ADLEO Logo">
+        </div>
+
+        <div class="description">
+            <h2>ADLEO</h2>
+            <p>En ADLEO, nos dedicamos a proporcionar una educación de calidad orientada a la tecnología. Nuestro instituto ofrece una amplia gama de cursos y programas diseñados para prepararte para el futuro. Únete a nosotros y forma parte de una comunidad apasionada por el aprendizaje y la innovación.</p>
+        </div>
+
+        <div class="highlight-sections">
+            <div class="highlight red">
+                <div class="icon">
+                    <i class="fas fa-calculator"></i>
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Matemática Binaria</h3>
+                <p>Este curso profundiza en los conceptos avanzados de matemáticas aplicadas a la tecnología, preparando a los estudiantes para resolver problemas complejos en el campo de la informática y las ciencias aplicadas.</p>
+            </div>
+
+            <div class="highlight orange">
+                <div class="icon">
+                    <i class="fas fa-laptop-code"></i>
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Programación Estructurada</h3>
+                <p>Aprende los fundamentos de la programación con un enfoque en técnicas estructuradas que son esenciales para desarrollar software de alta calidad y mantener un código limpio y eficiente.</p>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button onclick="window.location.href='/estudiantes'">Formar Parte</button>
+        </div>
+    </div>
+</body>
+</html>

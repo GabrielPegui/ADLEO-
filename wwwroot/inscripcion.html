@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ADLEO.css">
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin: auto;
+        }
+
+        form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        form input, form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #42a5f5;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #1e88e5;
+        }
+
+    </style>
+    <title>ADLEO</title>
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <img src="ADLEOlogo.png" alt=""> <h1> ADLEO </h1></div>
+        <nav>
+            <a href="estudiantes.html">Estudiantes</a>
+            <a href="inscripcion.html">Inscripción</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="maestros.html">Maestros</a>
+            <a href="secciones.html">Secciones</a>
+            <a href="login.html" style="color: #b81414;">Cerrar seccion</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inscripcion">
+            <h2>Inscripción</h2>
+        
+            <form action="/api/inscripcion" method="post">
+                <label for="studentName">Nombre del Estudiante:</label>
+                <input type="text" id="studentName" name="n_estudiante" required>
+                
+                <label for="course">Curso:</label>
+                <select id="course" name="Curso" required>
+                <option value="" disabled selected>Selecciona un curso</option>
+                    <!-- Opciones de curso se cargarán dinámicamente -->
+                </select>
+            
+                <label for="session">Sesión:</label>
+                <select id="session" name="Sesion" required>
+                    <!-- Opciones de sesión se cargarán dinámicamente -->
+                </select>
+            
+                <input type="hidden" id="maestro" name="Maestro">
+            
+                <button type="submit">Inscribirse</button>
+            </form>
+
+            <script>
+                const maestroData = [
+                { n_maestro: 'Ana Rodríguez', curso: 'Matemática Binaria', sesion: 'Lunes-5pm' },
+                { n_maestro: 'Luis Fernández', curso: 'Sistema Operativo', sesion: 'Martes-3pm' },
+                { n_maestro: 'Marta Sánchez', curso: 'Programación Estructurada', sesion: 'Miércoles-9am' },
+                { n_maestro: 'Pedro García', curso: 'Diseño de Sistemas', sesion: 'Jueves-11am' },
+                { n_maestro: 'Javier Morales', curso: 'Electrónica', sesion: 'Viernes-2pm' },
+                { n_maestro: 'Sandra Martínez', curso: 'Inglés Técnico', sesion: 'Lunes-10am' },
+                { n_maestro: 'Alejandro Romero', curso: 'Base de Datos', sesion: 'Martes-4pm' },
+                { n_maestro: 'Claudia Pérez', curso: 'Proyectos', sesion: 'Miércoles-1pm' },
+                { n_maestro: 'Sergio Gómez', curso: 'Matemática Binaria', sesion: 'Jueves-3pm' },
+                { n_maestro: 'Beatriz Castro', curso: 'Sistema Operativo', sesion: 'Viernes-10am' },
+                { n_maestro: 'Raúl Ortega', curso: 'Programación Estructurada', sesion: 'Lunes-2pm' },
+                { n_maestro: 'Sofía Ruiz', curso: 'Diseño de Sistemas', sesion: 'Martes-5pm' },
+                { n_maestro: 'Manuel Díaz', curso: 'Electrónica', sesion: 'Miércoles-11am' },
+                { n_maestro: 'Natalia León', curso: 'Base de Datos', sesion: 'Jueves-4pm' },
+                { n_maestro: 'Fernando Ortega', curso: 'Inglés Técnico', sesion: 'Viernes-1pm' },
+                { n_maestro: 'Isabel Ramírez', curso: 'Proyectos', sesion: 'Lunes-4pm' }
+                ];
+            
+                const courseSelect = document.getElementById('course');
+                const sessionSelect = document.getElementById('session');
+                const maestroInput = document.getElementById('maestro');
+            
+                // Cargar cursos únicos
+                const courses = [...new Set(maestroData.map(item => item.curso))];
+                courses.forEach(course => {
+                    const option = document.createElement('option');
+                    option.value = course;
+                    option.textContent = course;
+                    courseSelect.appendChild(option);
+                });
+            
+                // Cambiar sesiones cuando se selecciona un curso
+                courseSelect.addEventListener('change', () => {
+                    const selectedCourse = courseSelect.value;
+                    const sessions = maestroData.filter(item => item.curso === selectedCourse);
+            
+                    // Limpiar sesiones previas
+                    sessionSelect.innerHTML = '';
+                    sessions.forEach(session => {
+                        const option = document.createElement('option');
+                        option.value = session.sesion;
+                        option.textContent = session.sesion;
+                        sessionSelect.appendChild(option);
+                    });
+            
+                    // Asignar maestro correspondiente a la primera sesión
+                    if (sessions.length > 0) {
+                        maestroInput.value = sessions[0].n_maestro;
+                    }
+                });
+            
+                // Cambiar maestro cuando se selecciona una sesión
+                sessionSelect.addEventListener('change', () => {
+                    const selectedSession = sessionSelect.value;
+                    const maestro = maestroData.find(item => item.sesion === selectedSession);
+                    if (maestro) {
+                        maestroInput.value = maestro.n_maestro;
+                    }
+                });
+            </script>
+        </section>
+    </main>
+</body>
+</html>

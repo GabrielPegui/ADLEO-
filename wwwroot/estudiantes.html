@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ADLEO.css">
+    <title>ADLEO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #42a5f5;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #b81414;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .btn-delete:hover {
+            background-color: #a01313;
+        }
+    </style>
+
+    <script>
+        async function fetchEstudiantes() {
+            try {
+                const response = await fetch('/api/estudiantes');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const estudiantes = await response.json();
+                const tbody = document.querySelector('#estudiantes tbody');
+                tbody.innerHTML = ''; // Limpiar la tabla antes de llenarla
+                estudiantes.forEach(est => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${est.n_estudiante}</td>
+                        <td>${est.maestro}</td>
+                        <td>${est.curso}</td>
+                        <td>${est.sesion}</td>
+                        <td><button class="btn-delete" data-id="${est.id}">Eliminar</button></td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                // Agregar evento de click a los botones de eliminar
+                document.querySelectorAll('.btn-delete').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        const id = event.target.getAttribute('data-id');
+                        if (confirm('¿Estás seguro de que deseas eliminar este estudiante?')) {
+                            try {
+                                const response = await fetch(`/api/estudiantes/${id}`, {
+                                    method: 'DELETE',
+                                });
+                                if (!response.ok) throw new Error('Network response was not ok');
+                                fetchEstudiantes(); // Volver a cargar la lista de estudiantes
+                            } catch (error) {
+                                console.error('Error deleting estudiante:', error);
+                            }
+                        }
+                    });
+                });
+
+            } catch (error) {
+                console.error('Error fetching estudiantes:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchEstudiantes);
+    </script>
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <img src="ADLEOlogo.png" alt=""> <h1> ADLEO </h1></div>
+        <nav>
+            <a href="estudiantes.html">Estudiantes</a>
+            <a href="inscripcion.html">Inscripción</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="maestros.html">Maestros</a>
+            <a href="secciones.html">Secciones</a>
+            <a href="login.html" style="color: #b81414;">Cerrar sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="estudiantes">
+            <h2>Estudiantes</h2>
+            <p>Información sobre estudiantes.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Maestro</th>
+                        <th>Curso</th>
+                        <th>Sección</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se llenarán aquí mediante JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+  
+}
+
+
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#estudiantes {
+    background-color: #e3f2fd;
+}
+
+#inscripcion {
+    background-color: #bbdefb;
+}
+
+#cursos {
+    background-color: #90caf9;
+}
+
+#maestros {
+    background-color: wheat;
+}
+
+#secciones {
+    background-color: #90caf9;
+}
+
+img{
+    width:  20%;
+    height: 20%;
+}

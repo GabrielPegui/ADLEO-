@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ADLEO.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f57542;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        /* Estilo adicional para el delineado de celdas */
+        td {
+            border-right: 2px solid #f57542;
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        /* Estilo para los iconos */
+        .icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        /* Estilo adicional para los colores y detalles */
+        table {
+            border: 1px solid #dcdcdc;
+        }
+
+        th {
+            background-color: #ff4d4d; /* Rojo suave */
+            color: white;
+        }
+
+        td {
+            border-right: 1px solid #dcdcdc;
+        }
+
+        .header {
+            background-color: #4a90e2; /* Azul claro */
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+    <title>ADLEO</title>
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <img src="ADLEOlogo.png" alt=""> <h1> ADLEO </h1></div>
+        <nav>
+            <a href="estudiantes.html">Estudiantes</a>
+            <a href="inscripcion.html">Inscripción</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="maestros.html">Maestros</a>
+            <a href="secciones.html">Secciones</a>
+            <a href="login.html" style="color: #b81414;">Cerrar seccion</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="secciones">
+            <div class="header">
+                <h2><i class="fa-solid fa-map"></i> Secciones</h2>
+            </div>
+            <div class="container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><i class="fa-solid fa-book"></i>Curso</th>
+                            <th><i class="fa-solid fa-clock"></i>Sesión</th>
+                            <th><i class="fa-solid fa-chalkboard-user"></i>Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Matemática Binaria</td>
+                            <td>Lunes-5pm</td>
+                            <td>Ana Rodríguez</td>
+                        </tr>
+                        <tr>
+                            <td>Sistema Operativo</td>
+                            <td>Martes-3pm</td>
+                            <td>Luis Fernández</td>
+                        </tr>
+                        <tr>
+                            <td>Programación Estructurada</td>
+                            <td>Miércoles-9am</td>
+                            <td>Marta Sánchez</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño de Sistemas</td>
+                            <td>Jueves-11am</td>
+                            <td>Pedro García</td>
+                        </tr>
+                        <tr>
+                            <td>Electrónica</td>
+                            <td>Viernes-2pm</td>
+                            <td>Javier Morales</td>
+                        </tr>
+                        <tr>
+                            <td>Inglés Técnico</td>
+                            <td>Lunes-10am</td>
+                            <td>Sandra Martínez</td>
+                        </tr>
+                        <tr>
+                            <td>Base de Datos</td>
+                            <td>Martes-4pm</td>
+                            <td>Alejandro Romero</td>
+                        </tr>
+                        <tr>
+                            <td>Proyectos</td>
+                            <td>Miércoles-1pm</td>
+                            <td>Claudia Pérez</td>
+                        </tr>
+                        <tr>
+                            <td>Matemática Binaria</td>
+                            <td>Jueves-3pm</td>
+                            <td>Sergio Gómez</td>
+                        </tr>
+                        <tr>
+                            <td>Sistema Operativo</td>
+                            <td>Viernes-10am</td>
+                            <td>Beatriz Castro</td>
+                        </tr>
+                        <tr>
+                            <td>Programación Estructurada</td>
+                            <td>Lunes-2pm</td>
+                            <td>Raúl Ortega</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño de Sistemas</td>
+                            <td>Martes-5pm</td>
+                            <td>Sofía Ruiz</td>
+                        </tr>
+                        <tr>
+                            <td>Electrónica</td>
+                            <td>Miércoles-11am</td>
+                            <td>Manuel Díaz</td>
+                        </tr>
+                        <tr>
+                            <td>Base de Datos</td>
+                            <td>Jueves-4pm</td>
+                            <td>Natalia León</td>
+                        </tr>
+                        <tr>
+                            <td>Inglés Técnico</td>
+                            <td>Viernes-1pm</td>
+                            <td>Fernando Ortega</td>
+                        </tr>
+                        <tr>
+                            <td>Proyectos</td>
+                            <td>Lunes-4pm</td>
+                            <td>Isabel Ramírez</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+          
+
+    </main>
+</body>
+</html>

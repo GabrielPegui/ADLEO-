@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ADLEO.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+    
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .courses-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .course-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .course-card h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .course-card p {
+            margin: 10px 0 0;
+            color: #555;
+        }
+
+        .course-icon {
+            font-size: 50px;
+            color: #42a5f5;
+        }
+
+    </style>
+
+    <title>ADLEO</title>
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <img src="ADLEOlogo.png" alt=""> <h1> ADLEO </h1></div>
+        <nav>
+            <a href="estudiantes.html">Estudiantes</a>
+            <a href="inscripcion.html">Inscripción</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="maestros.html">Maestros</a>
+            <a href="secciones.html">Secciones</a>
+            <a href="login.html" style="color: #b81414;">Cerrar seccion</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="cursos">
+            <h2>Cursos</h2>
+
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Matemática Binaria</h3>
+                    <p>Lunes-5pm</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Sistema Operativo</h3>
+                    <p>Martes-3pm</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-code"></i></div>
+                    <h3>Programación Estructurada</h3>
+                    <p>Miércoles-9am</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Diseño de Sistemas</h3>
+                    <p>Jueves-11am</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Electrónica</h3>
+                    <p>Viernes-2pm</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-language"></i></div>
+                    <h3>Inglés Técnico</h3>
+                    <p>Lunes-10am</p>
+                </div>
+                <!-- Añadir más tarjetas según sea necesario -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>
